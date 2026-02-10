@@ -7,9 +7,9 @@
 
 import { Transaction } from '@mysten/sui/transactions';
 
-// 已部署的合约配置
+// 已部署的合约配置 (已修正 URL 版本)
 export const CONTRACT_CONFIG = {
-  packageId: '0xa1de2d5c526c101aa8367c43fff1ef5c257399e7129af05bff3f11b101066f21',
+  packageId: '0xbd35be3b17c1da5f7a32796e563cd93b81adc127b57bec6142d636ae5a815f87',
   moduleName: 'vibe_nft',
   functionName: 'mint',
 };

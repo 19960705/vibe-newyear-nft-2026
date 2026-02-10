@@ -9,8 +9,8 @@ import { useCurrentAccount, useSuiClientQuery } from '@mysten/dapp-kit'
  * 3. 瀑布流展示
  */
 
-// 我们的合约 Package ID
-const PACKAGE_ID = '0xa1de2d5c526c101aa8367c43fff1ef5c257399e7129af05bff3f11b101066f21';
+// 我们的合约 Package ID (已修正 URL 版本)
+const PACKAGE_ID = '0xbd35be3b17c1da5f7a32796e563cd93b81adc127b57bec6142d636ae5a815f87';
 
 export default function Gallery() {
   const account = useCurrentAccount()
@@ -55,7 +55,7 @@ export default function Gallery() {
   const beasts = objects?.data || []
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 text-left">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h2 className="text-5xl font-black text-gray-900 tracking-tighter mb-2">My Collection</h2>
@@ -74,12 +74,6 @@ export default function Gallery() {
           <p className="text-gray-400 mt-2 max-w-xs mx-auto leading-relaxed">
             你还没有在 Sui 链上铸造任何神兽。快去生成器页唤醒你的第一只守护灵吧！
           </p>
-          <button 
-            onClick={() => window.location.reload()} // 简单刷新回到首页或切换状态
-            className="mt-10 px-10 py-4 bg-gray-900 text-white font-black rounded-2xl hover:bg-red-600 transition-colors shadow-xl"
-          >
-            立即去唤醒
-          </button>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -93,15 +87,12 @@ export default function Gallery() {
                 className="group bg-white rounded-[2.5rem] p-4 shadow-xl border-4 border-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="relative aspect-square bg-gray-50 rounded-[2rem] overflow-hidden mb-6 flex items-center justify-center">
-                  {/* 背景渐变遮罩 */}
                   <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-yellow-500/5" />
-                  
                   <img 
                     src={display.image_url || '/assets/beasts/dragon.png'} 
                     alt="Beast"
                     className="w-4/5 h-4/5 object-contain drop-shadow-2xl transition-transform duration-700 group-hover:scale-110"
                   />
-                  
                   <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full">
                      <p className="text-[8px] font-black text-white uppercase tracking-tighter">ID: {obj.data?.objectId.slice(0,6)}...</p>
                   </div>
@@ -117,11 +108,9 @@ export default function Gallery() {
                        {content.zodiac || 'Unknown'}
                     </div>
                   </div>
-
                   <p className="text-xs text-gray-400 leading-relaxed line-clamp-2 italic">
                     “ {display.description || '这段神秘的寓意隐藏在区块链深处...'} ”
                   </p>
-
                   <div className="flex gap-2">
                      <a 
                        href={`https://suiscan.xyz/testnet/object/${obj.data?.objectId}`} 

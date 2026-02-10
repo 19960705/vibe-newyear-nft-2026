@@ -39,10 +39,10 @@ module vibe_nft::vibe_nft {
 
         let values = vector[
             string::utf8(b"{name}"),
-            string::utf8(b"https://vibe-nft.vercel.app/beast/{id}"),
+            string::utf8(b"https://vibe-newyear-nft.vercel.app/beast/{id}"),
             string::utf8(b"{image_url}"),
             string::utf8(b"{description}"),
-            string::utf8(b"https://vibe-nft.vercel.app"),
+            string::utf8(b"https://vibe-newyear-nft.vercel.app"),
             string::utf8(b"Vibe Hackathon Builder"),
         ];
 
